@@ -230,10 +230,11 @@ export default function createTransitionManager(history, routes) {
       if (hooks.indexOf(hook) === -1) {
         warning(
           false,
-          'adding multiple leave hooks for the same route is deprecated; manage multiple confirmations in your own code instead'
+          'adding multiple leave hooks for the same route is not supported; the one just added will be used'
         )
 
-        hooks.push(hook)
+        hooks.length = 0;
+        hooks.push(hook);
       }
     }
 
